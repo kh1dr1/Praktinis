@@ -15,7 +15,7 @@ const float INR_Bendras = 88.8260;
 const float INR_Pirkti = 85.2614;
 const float INR_Parduoti = 92.8334;
 
-int getCurrencyInput(int& amount_var)
+int getCurrencyInput(float& amount_var)
 {
     int choice = 0;
 
@@ -63,7 +63,7 @@ int main()
         case 2:
         {
             int choice = 0;
-            int amount = 0;
+            float amount = 0;
 
             cout << "\n----------- PIRKTI VALIUTĄ -----------\n";
             choice = getCurrencyInput(amount);
@@ -93,7 +93,7 @@ int main()
         case 3:
         {
             int choice = 0;
-            int amount = 0;
+            float amount = 0;
 
             cout << "\n---------- PARDUOTI VALIUTĄ ----------\n";
             choice = getCurrencyInput(amount);

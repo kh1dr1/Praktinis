@@ -15,6 +15,24 @@ const float INR_Bendras = 88.8260;
 const float INR_Pirkti = 85.2614;
 const float INR_Parduoti = 92.8334;
 
+int getCurrencyInput(int& amount_var)
+{
+    int choice = 0;
+
+    cout << "\nPasirinkite valiutą:\n";
+    cout << "[1] Didžiosios Britanijos svaras (GBP)\n";
+    cout << "[2] JAV doleris (USD)\n";
+    cout << "[3] Indijos rupija (INR)\n";
+
+    cout << "\nJūsų pasirinkimas:";
+    cin >> choice;
+
+    cout << "Įveskite valiutos kiekį:";
+    cin >> amount_var;
+
+    return choice;
+}
+
 int main()
 {
     cout << fixed << setprecision(2);
@@ -24,53 +42,46 @@ int main()
 
     while (isRunning)
     {
-        cout << "\nPasirinkite funkcija:\n";
-        cout << "[1] Palyginti valiutu kursus\n";
-        cout << "[2] Pirkti valiuta\n";
-        cout << "[3] Parduoti valiuta\n";
-        cout << "[0] Iseiti is programos\n";
+        cout << "\nPasirinkite funkciją:\n";
+        cout << "[1] Palyginti valiutų kursus\n";
+        cout << "[2] Pirkti valiutą\n";
+        cout << "[3] Parduoti valiutą\n";
+        cout << "[0] Išeiti is programos\n";
 
+        cout << ">> ";
         cin >> mainChoice;
 
         switch (mainChoice)
         {
         case 1:
-            cout << "\nValiutu kursai (1 euro kaina):\n";
-            cout << "Didziosios Britanijos svaras (GBP): " << GBP_Bendras << '\n';
-            cout << "JAV Doleris (USD): " << USD_Bendras << '\n';
-            cout << "Indijos rupija (INR): " << INR_Bendras << "\n\n";
+            cout << "\n--------------------- VALIUTŲ KURSAI ---------------------\n";
+            cout << "Didžiosios Britanijos svaras (GBP): " << GBP_Bendras << " svarų už 1 eurą\n";
+            cout << "JAV doleris (USD):                  " << USD_Bendras << " dolerių už 1 eurą\n";
+            cout << "Indijos rupija (INR):               " << INR_Bendras << " rupijų už 1 eurą\n";
+            cout << "----------------------------------------------------------\n";
             break;
         case 2:
         {
             int choice = 0;
             int amount = 0;
 
-            cout << "\nPasirinkite valiuta, kuri norite pirkti:\n";
-            cout << "[1] Didziosios Britanijos svaras (GBP)\n";
-            cout << "[2] JAV doleris (USD)\n";
-            cout << "[3] Indijos rupija (INR)\n";
-
-            cout << "\nJusu pasirinkimas:";
-            cin >> choice;
-
-            cout << "Iveskite valiutos kieki:";
-            cin >> amount;
-
+            cout << "\n----------- PIRKTI VALIUTĄ -----------\n";
+            choice = getCurrencyInput(amount);
             cout << '\n';
 
             switch (choice)
             {
             case 1:
-                cout << "Jus galite nusipirkti " << amount << " Didziosios Britanijos svaru (GBP) uz " 
-                     << amount / GBP_Pirkti << " euru\n";
+                cout << "Jūs galite nusipirkti " << amount << " Didžiosios Britanijos svarų (GBP) už "
+                     << amount / GBP_Pirkti << " eurų\n";
                 break;
             case 2:
-                cout << "Jus galite nusipirkti " << amount << " JAV doleriu (USD) uz " 
-                     << amount / USD_Pirkti << " euru\n";
+                cout << "Jūs galite nusipirkti " << amount << " JAV dolerių (USD) už "
+                     << amount / USD_Pirkti << " eurų\n";
                 break;
             case 3:
-                cout << "Jus galite nusipirkti " << amount << " Indijos rupiju (INR) uz " 
-                     << amount / INR_Pirkti << " euru\n";
+                cout << "Jūs galite nusipirkti " << amount << " Indijos rupijų (INR) už "
+                     << amount / INR_Pirkti << " eurų\n";
                 break;
             default:
                 cout << "Klaida: Neteisingas valiutos pasirinkimas.\n";
@@ -84,32 +95,23 @@ int main()
             int choice = 0;
             int amount = 0;
 
-            cout << "\nPasirinkite valiuta, kuri norite parduoti:\n";
-            cout << "[1] Didziosios Britanijos svaras (GBP)\n";
-            cout << "[2] JAV doleris (USD)\n";
-            cout << "[3] Indijos rupija (INR)\n";
-
-            cout << "\nJusu pasirinkimas:";
-            cin >> choice;
-
-            cout << "Iveskite valiutos kieki:";
-            cin >> amount;
-
+            cout << "\n---------- PARDUOTI VALIUTĄ ----------\n";
+            choice = getCurrencyInput(amount);
             cout << '\n';
 
             switch (choice)
             {
             case 1:
-                cout << "Jus galite parduoti " << amount << " Didziosios Britanijos svaru (GBP) uz "
-                     << amount / GBP_Parduoti << " euru\n";
+                cout << "Jūs galite parduoti " << amount << " Didžiosios Britanijos svarų (GBP) už "
+                     << amount / GBP_Parduoti << " eurų\n";
                 break;
             case 2:
-                cout << "Jus galite parduoti " << amount << " JAV doleriu (USD) uz "
-                     << amount / USD_Parduoti << " euru\n";
+                cout << "Jūs galite parduoti " << amount << " JAV dolerių (USD) už "
+                     << amount / USD_Parduoti << " eurų\n";
                 break;
             case 3:
-                cout << "Jus galite parduoti " << amount << " Indijos rupiju (INR) uz "
-                     << amount / INR_Parduoti << " euru\n";
+                cout << "Jūs galite parduoti " << amount << " Indijos rupijų (INR) už "
+                     << amount / INR_Parduoti << " eurų\n";
                 break;
             default:
                 cout << "Klaida: Neteisingas valiutos pasirinkimas.\n";

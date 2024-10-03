@@ -17,8 +17,7 @@ const float INR_Parduoti = 92.8334;
 int main()
 {
     bool isRunning = true;
-    int choice = 0;
-    int balance_eur = 0;
+    int mainChoice = 0;
 
     while (isRunning)
     {
@@ -28,12 +27,15 @@ int main()
         cout << "[3] Parduoti valiuta\n";
         cout << "[0] Iseiti is programos\n";
 
-        cin >> choice;
+        cin >> mainChoice;
 
-        switch (choice)
+        switch (mainChoice)
         {
         case 1:
-
+            cout << "\nValiutu kursai (1 euro kaina):\n";
+            cout << "Didziosios Britanijos svaras (GBP): " << GBP_Bendras << '\n';
+            cout << "JAV Doleris (USD): " << USD_Bendras << '\n';
+            cout << "Indijos rupija (INR): " << INR_Bendras << "\n\n";
             break;
         case 2:
 

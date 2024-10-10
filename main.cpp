@@ -1,4 +1,5 @@
 #include <iostream>
+#include <clocale>
 #include <iomanip>
 
 using namespace std;
@@ -19,15 +20,15 @@ int getCurrencyInput(float& amount_var)
 {
     int choice = 0;
 
-    cout << "\nPasirinkite valiutą:\n";
-    cout << "[1] Didžiosios Britanijos svaras (GBP)\n";
-    cout << "[2] JAV doleris (USD)\n";
-    cout << "[3] Indijos rupija (INR)\n";
+    wcout << L"\nPasirinkite valiutą:\n";
+    wcout << L"[1] Didžiosios Britanijos svaras (GBP)\n";
+    wcout << L"[2] JAV doleris (USD)\n";
+    wcout << L"[3] Indijos rupija (INR)\n";
 
-    cout << "\nJūsų pasirinkimas:";
+    wcout << L"\nJūsų pasirinkimas:";
     cin >> choice;
 
-    cout << "Įveskite valiutos kiekį:";
+    wcout << L"Įveskite valiutos kiekį:";
     cin >> amount_var;
 
     return choice;
@@ -35,56 +36,57 @@ int getCurrencyInput(float& amount_var)
 
 int main()
 {
-    cout << fixed << setprecision(2);
+    wcout << fixed << setprecision(2);
+    setlocale(LC_ALL, "Lithuanian");
 
     bool isRunning = true;
     int mainChoice = 0;
 
     while (isRunning)
     {
-        cout << "\nPasirinkite funkciją:\n";
-        cout << "[1] Palyginti valiutų kursus\n";
-        cout << "[2] Pirkti valiutą\n";
-        cout << "[3] Parduoti valiutą\n";
-        cout << "[0] Išeiti is programos\n";
+        wcout << L"\nPasirinkite funkciją:\n";
+        wcout << L"[1] Palyginti valiutų kursus\n";
+        wcout << L"[2] Pirkti valiutą\n";
+        wcout << L"[3] Parduoti valiutą\n";
+        wcout << L"[0] Išeiti is programos\n";
 
-        cout << ">> ";
+        wcout << ">> ";
         cin >> mainChoice;
 
         switch (mainChoice)
         {
         case 1:
-            cout << "\n--------------------- VALIUTŲ KURSAI ---------------------\n";
-            cout << "Didžiosios Britanijos svaras (GBP): " << GBP_Bendras << " svarų už 1 eurą\n";
-            cout << "JAV doleris (USD):                  " << USD_Bendras << " dolerių už 1 eurą\n";
-            cout << "Indijos rupija (INR):               " << INR_Bendras << " rupijų už 1 eurą\n";
-            cout << "----------------------------------------------------------\n";
+            wcout << L"\n--------------------- VALIUTŲ KURSAI ---------------------\n";
+            wcout << L"Didžiosios Britanijos svaras (GBP): " << GBP_Bendras << L" svarų už 1 eurą\n";
+            wcout << L"JAV doleris (USD):                  " << USD_Bendras << L" dolerių už 1 eurą\n";
+            wcout << L"Indijos rupija (INR):               " << INR_Bendras << L" rupijų už 1 eurą\n";
+            wcout << "----------------------------------------------------------\n";
             break;
         case 2:
         {
             int choice = 0;
             float amount = 0;
 
-            cout << "\n----------- PIRKTI VALIUTĄ -----------\n";
+            wcout << L"\n----------- PIRKTI VALIUTĄ -----------\n";
             choice = getCurrencyInput(amount);
-            cout << '\n';
+            wcout << '\n';
 
             switch (choice)
             {
             case 1:
-                cout << "Jūs galite nusipirkti " << amount << " Didžiosios Britanijos svarų (GBP) už "
-                     << amount / GBP_Pirkti << " eurų\n";
+                wcout << L"Jūs galite nusipirkti " << amount << L" Didžiosios Britanijos svarų (GBP) už "
+                     << amount / GBP_Pirkti << L" eurų\n";
                 break;
             case 2:
-                cout << "Jūs galite nusipirkti " << amount << " JAV dolerių (USD) už "
-                     << amount / USD_Pirkti << " eurų\n";
+                wcout << L"Jūs galite nusipirkti " << amount << L" JAV dolerių (USD) už "
+                     << amount / USD_Pirkti << L" eurų\n";
                 break;
             case 3:
-                cout << "Jūs galite nusipirkti " << amount << " Indijos rupijų (INR) už "
-                     << amount / INR_Pirkti << " eurų\n";
+                wcout << L"Jūs galite nusipirkti " << amount << L" Indijos rupijų (INR) už "
+                     << amount / INR_Pirkti << L" eurų\n";
                 break;
             default:
-                cout << "Klaida: Neteisingas valiutos pasirinkimas.\n";
+                wcout << L"Klaida: Neteisingas valiutos pasirinkimas.\n";
                 break;
             }
 
@@ -95,26 +97,26 @@ int main()
             int choice = 0;
             float amount = 0;
 
-            cout << "\n---------- PARDUOTI VALIUTĄ ----------\n";
+            wcout << L"\n---------- PARDUOTI VALIUTĄ ----------\n";
             choice = getCurrencyInput(amount);
-            cout << '\n';
+            wcout << '\n';
 
             switch (choice)
             {
             case 1:
-                cout << "Jūs galite parduoti " << amount << " Didžiosios Britanijos svarų (GBP) už "
-                     << amount / GBP_Parduoti << " eurų\n";
+                wcout << L"Jūs galite parduoti " << amount << L" Didžiosios Britanijos svarų (GBP) už "
+                     << amount / GBP_Parduoti << L" eurų\n";
                 break;
             case 2:
-                cout << "Jūs galite parduoti " << amount << " JAV dolerių (USD) už "
-                     << amount / USD_Parduoti << " eurų\n";
+                wcout << L"Jūs galite parduoti " << amount << L" JAV dolerių (USD) už "
+                     << amount / USD_Parduoti << L" eurų\n";
                 break;
             case 3:
-                cout << "Jūs galite parduoti " << amount << " Indijos rupijų (INR) už "
-                     << amount / INR_Parduoti << " eurų\n";
+                wcout << L"Jūs galite parduoti " << amount << L" Indijos rupijų (INR) už "
+                     << amount / INR_Parduoti << L" eurų\n";
                 break;
             default:
-                cout << "Klaida: Neteisingas valiutos pasirinkimas.\n";
+                wcout << L"Klaida: Neteisingas valiutos pasirinkimas.\n";
                 break;
             }
 
@@ -124,7 +126,7 @@ int main()
             isRunning = false;
             break;
         default:
-            cout << "Klaida: Neteisingas pasirinkimas.\n";
+            wcout << L"Klaida: Neteisingas pasirinkimas.\n";
             break;
         }
     }
